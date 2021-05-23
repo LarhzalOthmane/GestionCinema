@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+    <script src="/webjars/popper.js/1.14.3/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container d-flex">
+        <div class="col-md-6 pt-4 m-auto">
+            <div class="card">
+                <div class="card-header">Authentication</div>
+                <div class="card-body">
+                    <form th:action="@{login}" method="POST">
+                        <div class="form-group">
+                            <label for="username" class="control-label">Username</label>
+                            <input type="text" name="username" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">Password</label>
+                            <input type="password" name="password" id="password">
+                        </div>
+                        <button class="btn btn-primary m-auto">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
