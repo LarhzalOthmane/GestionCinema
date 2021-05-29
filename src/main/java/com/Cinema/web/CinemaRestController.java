@@ -11,18 +11,18 @@ import javax.transaction.Transactional;
 
 import com.Cinema.entities.Film;
 import com.Cinema.entities.Ticket;
-// import com.Cinema.entities.Ville;
 import com.Cinema.repositories.FilmRepository;
 import com.Cinema.repositories.TicketRepository;
-import com.Cinema.repositories.VilleRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.Data;
@@ -33,15 +33,15 @@ public class CinemaRestController {
     @Autowired
     private FilmRepository filmRepository;
     @Autowired
-    VilleRepository villeRepository;
-    @Autowired
     private TicketRepository ticketRepository;
 
     @GetMapping(path = "/imageFilm/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] image(@PathVariable(name = "id") Long id) throws Exception {
         Film film = filmRepository.findById(id).get();
         String imageName = film.getPhoto();
-        File file = new File(System.getProperty("user.home") + "/cinema/images/" + imageName);
+        // File file = new File(System.getProperty("user.home") + "/cinema/images/" +
+        // imageName);
+        File file = new File("src/main/resources/static/img/" + imageName);
         Path path = Paths.get(file.toURI());
         return Files.readAllBytes(path);
     }
@@ -49,6 +49,7 @@ public class CinemaRestController {
     @PostMapping("/payerTickets")
     @Transactional
     public List<Ticket> payerTickets(@RequestBody TicketForm ticketForm) {
+        System.out.println("Hello");
         List<Ticket> tickets = new ArrayList<Ticket>();
         ticketForm.getTickets().forEach(idTicket -> {
             Ticket ticket = ticketRepository.findById(idTicket).get();
@@ -59,13 +60,6 @@ public class CinemaRestController {
             tickets.add(ticket);
         });
         return tickets;
-    }
-
-    @GetMapping("/getVilles")
-    public String getVilles() {
-        //List<Ville> villes = new ArrayList<Ville>();
-        //villes = villeRepository.findAll();
-        return "Hello world";
     }
 
 }
