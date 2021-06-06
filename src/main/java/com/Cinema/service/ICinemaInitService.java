@@ -18,4 +18,6 @@ public interface ICinemaInitService {
     public void initProjections();
 
     public void initTickets();
+
+    public void truncate();
 }

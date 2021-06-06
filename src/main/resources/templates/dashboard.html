@@ -6,31 +6,178 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-
-    <link rel="stylesheet" href="/webjars/bootstrap/4.1.3/css/bootstrap.css" />
+    <title th:text="${title}"></title>
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
 
-    <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
-    <script src="/webjars/popper.js/1.14.3/popper.min.js"></script>
-    <script src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.1.3/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
+    <!-- Modals -->
+    <div th:insert="fragments/modals/villeModal :: villeModal"></div>
+    <div th:insert="fragments/modals/cinemaModal :: cinemaModal"></div>
+    <div th:insert="fragments/modals/salleModal :: salleModal"></div>
+    <div th:insert="fragments/modals/placeModal :: placeModal"></div>
+    <div th:insert="fragments/modals/projectionModal :: projectionModal"></div>
+    <div th:insert="fragments/modals/seanceModal :: seanceModal"></div>
+    <div th:insert="fragments/modals/ticketModal :: ticketModal"></div>
+    <div th:insert="fragments/modals/filmModal :: filmModal"></div>
+    <div th:insert="fragments/modals/categorieModal :: categorieModal"></div>
+    <!-- Modals -->
+
     <div th:insert="fragments/header.html :: header"></div>
     <div class="container mt-2">
-        <div class="card">
+        <div class="card card-default">
             <div class="card-header">
-                Entities
-            </div>
-            <div class="card-body">
-
+                Dashboard
+            </div> 
+            <div class="card-body p-0">
+                <div class="row m-1">
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Villes
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une ville">
+                                    <i class="fa fa-plus" entity-name="ville" aria-hidden="true" data-toggle="modal" data-target="#villeModal" modal-form="villeModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="villesCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Cinemas
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une cinema">
+                                    <i class="fa fa-plus" entity-name="cinema" aria-hidden="true" data-toggle="modal" data-target="#cinemaModal" modal-form="cinemaModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="cinemasCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Salles
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une salle">
+                                    <i class="fa fa-plus" entity-name="salle" aria-hidden="true" data-toggle="modal" data-target="#salleModal" modal-form="salleModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="sallesCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Places
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une place">
+                                    <i class="fa fa-plus" entity-name="place" aria-hidden="true" data-toggle="modal" data-target="#placeModal" modal-form="placeModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="placesCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Projections
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une projection">
+                                    <i class="fa fa-plus" entity-name="projection" aria-hidden="true" data-toggle="modal" data-target="#projectionModal" modal-form="projectionModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="projectionsCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Seances
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une seance">
+                                    <i class="fa fa-plus" entity-name="seance" aria-hidden="true" data-toggle="modal" data-target="#seanceModal" modal-form="seanceModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="seancesCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Tickets
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une ticket">
+                                    <i class="fa fa-plus" entity-name="ticket" aria-hidden="true" data-toggle="modal" data-target="#ticketModal" modal-form="ticketModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="ticketsCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Films
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une film">
+                                    <i class="fa fa-plus" entity-name="film" aria-hidden="true" data-toggle="modal" data-target="#filmModal" modal-form="filmModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="filmsCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card col-4 p-0 tile">
+                        <div class="card-header d-flex">
+                            Categorie
+                            <ul class="list-inline ml-auto my-0">
+                                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                                    title="Ajouter une categorie">
+                                    <i class="fa fa-plus" entity-name="categorie" aria-hidden="true" data-toggle="modal" data-target="#categorieModal" modal-form="categorieModalForm"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul id="categoriesCard" class="list-group list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#villeModal">Content</button>
+        
     </div>
     <div th:insert="fragments/footer.html :: footer"></div>
-
 </body>
 
 </html>

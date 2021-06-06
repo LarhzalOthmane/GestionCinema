@@ -1,0 +1,24 @@
+<div id="categorieModal" th:fragment="categorieModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <button class="btn btn-md btn-secondary categorie-cancel" disabled>Cancel</button>
+                    <button class="btn btn-md btn-primary ml-auto categorie-edit">Edit</button>
+                </div>
+                <hr>
+                <form action="@{/addCategorie}" method="post" id="categorieModalForm">
+                    <div class="form-group col-12">
+                        <label for="categorieName">Nom de categorie</label>
+                        <input id="categorieName" class="form-control categorie-form-field" type="text"
+                            name="categorieName" disabled>
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary mx-auto categorie-submit-btn"
+                            style="display: none;">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

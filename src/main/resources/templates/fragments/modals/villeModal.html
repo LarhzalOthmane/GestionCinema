@@ -1,0 +1,36 @@
+<div id="villeModal" th:fragment="villeModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <button class="btn btn-md btn-secondary ville-cancel" disabled>Cancel</button>
+                    <button class="btn btn-md btn-primary ml-auto ville-edit">Edit</button>
+                </div>
+                <hr>
+                <form action="@{/addVille}" method="post" id="villeModalForm" edit-id="-1">
+                    <div class="form-group col-12">
+                        <label for="villeName">Nom de ville</label>
+                        <input id="villeName" class="form-control ville-form-field" type="text" name="villeName" disabled>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="form-group col-4">
+                            <label for="villeLongitude">Longitude</label>
+                            <input id="villeLongitude" class="form-control ville-form-field" type="text" name="villeLongitude" disabled>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="villeLatitude">Latitude</label>
+                            <input id="villeLatitude" class="form-control ville-form-field" type="text" name="villeLatitude" disabled>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="villeAltitude">Altitude</label>
+                            <input id="villeAltitude" class="form-control ville-form-field" type="text" name="villeAltitude" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary mx-auto ville-submit-btn" style="display: none;">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

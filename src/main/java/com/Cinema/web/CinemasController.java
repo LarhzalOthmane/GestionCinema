@@ -7,7 +7,11 @@ import com.Cinema.repositories.VilleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import lombok.Data;
 
 /**
  * CinemasController
@@ -20,13 +24,18 @@ public class CinemasController {
     @Autowired
     private VilleRepository villeRepository;
 
-    @GetMapping(value = "/createCinema")
-    public String createCinema(@RequestParam String cinemaName, @RequestParam int nombreSalles,
-            @RequestParam Long villeId) {
+    @PostMapping(value = "/createCinema")
+    public String createCinema(@RequestBody CinemaForm cinemaForm) {
         Cinema cinema = new Cinema();
-        cinema.setName(cinemaName);
-        cinema.setNombreSalles(nombreSalles);
-        cinema.setVille(villeRepository.findById(villeId).get());
+        long id = cinemaForm.getId();
+        long villeId = cinemaForm.getVilleId();
+        cinema.setName(cinemaForm.getName());
+        cinema.setNombreSalles(cinemaForm.getNombreSalles());
+        cinema.setVille(villeRepository.getById(villeId));
+        cinema.setAltitude(cinemaForm.getAltitude());
+        cinema.setLatitude(cinemaForm.getLatitude());
+        cinema.setLongitude(cinemaForm.getLatitude());
+        cinema.setId(id == -1 ? null : id);
         repository.save(cinema);
         return "redirect:/";
     }
@@ -48,4 +57,14 @@ public class CinemasController {
         return "redirect:/";
     }
 
+}
+
+@Data
+
+class CinemaForm {
+    private int id;
+    private String name;
+    private double longitude, latitude, altitude;
+    private int nombreSalles;
+    private int villeId;
 }

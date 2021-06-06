@@ -1,0 +1,42 @@
+<div id="placeModal" th:fragment="placeModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <button class="btn btn-md btn-secondary place-cancel" disabled>Cancel</button>
+                    <button class="btn btn-md btn-primary ml-auto place-edit">Edit</button>
+                </div>
+                <hr>
+                <form action="@{/addPlace}" method="post" id="placeModalForm">
+                    <div class="form-group col-12">
+                        <label for="placeName">Nom de place</label>
+                        <input id="placeName" class="form-control place-form-field" type="text" name="placeName" disabled>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="form-group col-4">
+                            <label for="placeLongitude">Longitude</label>
+                            <input id="placeLongitude" class="form-control place-form-field" type="text" name="placeLongitude" disabled>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="placeLatitude">Latitude</label>
+                            <input id="placeLatitude" class="form-control place-form-field" type="text" name="placeLatitude" disabled>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="placeAltitude">Altitude</label>
+                            <input id="placeAltitude" class="form-control place-form-field" type="text" name="placeAltitude" disabled>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="form-group col-4">
+                            <label for="placeNumero">Numero</label>
+                            <input id="placeNumero" class="form-control place-form-field" type="text" name="placeNumero" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary mx-auto place-submit-btn" style="display: none;">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

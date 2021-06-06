@@ -1,0 +1,24 @@
+<div id="seanceModal" th:fragment="seanceModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <button class="btn btn-md btn-secondary seance-cancel" disabled>Cancel</button>
+                    <button class="btn btn-md btn-primary ml-auto seance-edit">Edit</button>
+                </div>
+                <hr>
+                <form action="@{/addSeance}" method="post" id="seanceModalForm">
+                    <div class="form-group col-12">
+                        <label for="seanceHeureDebut">Heure de seance</label>
+                        <input id="seanceHeureDebut" class="form-control seance-form-field" type="text"
+                            name="seanceHeureDebut" disabled>
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary mx-auto seance-submit-btn"
+                            style="display: none;">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

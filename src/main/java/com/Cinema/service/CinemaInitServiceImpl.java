@@ -120,7 +120,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
     public void initCategories() {
         Stream.of("Histoire", "Action", "Fiction", "Drama").forEach(c -> {
             Categorie categorie = new Categorie();
-            categorie.setNom(c);
+            categorie.setName(c);
             categorieRepository.save(categorie);
         });
 
@@ -179,6 +179,19 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
             });
         });
 
+    }
+
+    @Override
+    public void truncate() {
+        categorieRepository.deleteAll();
+        cinemaRepository.deleteAll();
+        filmRepository.deleteAll();
+        placeRepository.deleteAll();
+        projectionRepository.deleteAll();
+        salleRepository.deleteAll();
+        seanceRepository.deleteAll();
+        ticketRepository.deleteAll();
+        villeRepository.deleteAll();
     }
 
 }

@@ -43,14 +43,15 @@ public class WebController {
     @GetMapping("/")
     public String index(Model model) {
         List<Ville> villes = villeRepository.findAll();
-        
+        model.addAttribute("title", "Cinema Hub");
         model.addAttribute("villes", villes);
         return "index";
     }
 
     
     @GetMapping(value="/dashboard")
-    public String getDashboard() {
+    public String getDashboard(Model model) {
+        model.addAttribute("title", "Dashboard");
         return new String("dashboard");
     }
 

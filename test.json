@@ -1,0 +1,92 @@
+{
+    "_embedded": {
+        "villes": [
+            {
+                "id": 1,
+                "name": "Casablanca",
+                "longitude": 0.0,
+                "latidude": 0.0,
+                "altitude": 0.0,
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/villes/1"
+                    },
+                    "ville": {
+                        "href": "http://localhost:8080/villes/1"
+                    },
+                    "cinemas": {
+                        "href": "http://localhost:8080/villes/1/cinemas"
+                    }
+                }
+            },
+            {
+                "id": 2,
+                "name": "Marrakech",
+                "longitude": 0.0,
+                "latidude": 0.0,
+                "altitude": 0.0,
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/villes/2"
+                    },
+                    "ville": {
+                        "href": "http://localhost:8080/villes/2"
+                    },
+                    "cinemas": {
+                        "href": "http://localhost:8080/villes/2/cinemas"
+                    }
+                }
+            },
+            {
+                "id": 3,
+                "name": "Rabat",
+                "longitude": 0.0,
+                "latidude": 0.0,
+                "altitude": 0.0,
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/villes/3"
+                    },
+                    "ville": {
+                        "href": "http://localhost:8080/villes/3"
+                    },
+                    "cinemas": {
+                        "href": "http://localhost:8080/villes/3/cinemas"
+                    }
+                }
+            },
+            {
+                "id": 4,
+                "name": "Tanger",
+                "longitude": 0.0,
+                "latidude": 0.0,
+                "altitude": 0.0,
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/villes/4"
+                    },
+                    "ville": {
+                        "href": "http://localhost:8080/villes/4"
+                    },
+                    "cinemas": {
+                        "href": "http://localhost:8080/villes/4/cinemas"
+                    }
+                }
+            }
+        ]
+    },
+    "_links": {
+        "self": {
+            "href": "http://localhost:8080/villes"
+        },
+        "profile": {
+            "href": "http://localhost:8080/profile/villes"
+        }
+    },
+    "page": {
+        "size": 20,
+        "totalElements": 4,
+        "totalPages": 1,
+        "number": 0
+    }
+}

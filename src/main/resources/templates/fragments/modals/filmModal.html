@@ -1,0 +1,41 @@
+<div id="filmModal" th:fragment="filmModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <button class="btn btn-md btn-secondary film-cancel" disabled>Cancel</button>
+                    <button class="btn btn-md btn-primary ml-auto film-edit">Edit</button>
+                </div>
+                <hr>
+                <form action="@{/addFilm}" method="post" id="filmModalForm">
+                    <div class="form-group col-12">
+                        <label for="filmTitre">Titre de film</label>
+                        <input id="filmTitre" class="form-control film-form-field" type="text" name="filmTitre" disabled>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="form-group col-4">
+                            <label for="filmDescription">Description</label>
+                            <input id="filmDescription" class="form-control film-form-field" type="text" name="filmDescription" disabled>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="filmRealisateur">Realisateur</label>
+                            <input id="filmRealisateur" class="form-control film-form-field" type="text" name="filmRealisateur" disabled>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="filmDateSortie">Date de Sortie</label>
+                            <input id="filmDateSortie" class="form-control film-form-field" type="text" name="filmDateSortie" disabled>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="form-group col-4">
+                            <img src="http://localhost:8080/imageFilm/" class="film-form-field" alt="">
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary mx-auto film-submit-btn" style="display: none;">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

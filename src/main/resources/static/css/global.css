@@ -1,6 +1,32 @@
 hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.add {
+  cursor: pointer;
+  transition: 0.7s ease;
+}
+.add:hover{
+  transform: scale(1.1, 1.1);
+}
+
+.cursor{
+  cursor: pointer;
+  transition: 0.7s ease;
+}
+
+.cursor:hover{
+  transform: scale(1.1, 1.1);
+}
+
+.card-body{
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.tile{
+  height: 30em;
+}

@@ -1,0 +1,42 @@
+<div id="cinemaModal" th:fragment="cinemaModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <button class="btn btn-md btn-secondary cinema-cancel" disabled>Cancel</button>
+                    <button class="btn btn-md btn-primary ml-auto cinema-edit">Edit</button>
+                </div>
+                <hr>
+                <form action="@{/addCinema}" method="post" id="cinemaModalForm">
+                    <div class="form-group col-12">
+                        <label for="cinemaName">Nom de cinema</label>
+                        <input id="cinemaName" class="form-control cinema-form-field" type="text" name="cinemaName" disabled>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="form-group col-4">
+                            <label for="cinemaLongitude">Longitude</label>
+                            <input id="cinemaLongitude" class="form-control cinema-form-field" type="text" name="cinemaLongitude" disabled>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="cinemaLatitude">Latitude</label>
+                            <input id="cinemaLatitude" class="form-control cinema-form-field" type="text" name="cinemaLatitude" disabled>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="cinemaAltitude">Altitude</label>
+                            <input id="cinemaAltitude" class="form-control cinema-form-field" type="text" name="cinemaAltitude" disabled>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="form-group col-4">
+                            <label for="cinemaNombreSalles">Nombre salles</label>
+                            <input id="cinemaNombreSalles" class="form-control cinema-form-field" type="text" name="cinemaNombreSalles" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary mx-auto cinema-submit-btn" style="display: none;">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

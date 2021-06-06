@@ -1,0 +1,19 @@
+<div th:fragment="card">
+    <div class="card col-4 p-0">
+        <div class="card-header d-flex">
+            <div th:text="${Title}s">
+
+            </div>
+            <ul class="list-inline ml-auto my-0">
+                <li class="list-inline-item add" data-toggle="tooltip" data-placement="bottom"
+                    title="Ajouter une ${Title}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body p-0">
+            <ul id="${Title}sCard" class="list-group">
+            </ul>
+        </div>
+    </div>
+</div>

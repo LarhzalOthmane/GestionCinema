@@ -35,10 +35,16 @@ public class CinemaApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		configuration.exposeIdsFor(Film.class, Salle.class, Ticket.class, Categorie.class, Cinema.class, Place.class,
 				Projection.class, Seance.class, Ville.class);
-		// cinemaInitService.initTickets();
-		// cinemaInitService.initProjections();
+		// cinemaInitService.truncate();
 		// cinemaInitService.initVilles();
+		// cinemaInitService.initCategories();
+		// cinemaInitService.initSeances();
+		// cinemaInitService.initCinemas();
+		// cinemaInitService.initSalles();
+		// cinemaInitService.initPlaces();
 		// cinemaInitService.initFilms();
+		// cinemaInitService.initProjections();
+		// cinemaInitService.initTickets();
 	}
 
 }
